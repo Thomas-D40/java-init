@@ -1,5 +1,6 @@
 package fr.m2i;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,13 +11,29 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ecrivez un premier nombre");
-        firstNumber = scanner.nextInt();
+        while (true) {
+            try {
+                System.out.print("Ecrivez un premier nombre entier");
+                firstNumber = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Essayez à nouveau");
+                scanner.nextLine();
+            }
+        }
 
-        System.out.println("Ecrivez un second nombre");
-        secondNumber = scanner.nextInt();
+        while (true) {
+            try {
+                System.out.print("Ecrivez un second nombre entier");
+                secondNumber = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Essayez à nouveau");
+                scanner.nextLine();
+            }
+        }
 
-        System.out.println("La somme de vos deux nombres est :" + (firstNumber + secondNumber));
+        System.out.println("La somme de vos deux nombres est :" + (firstNumber * secondNumber));
 
 
     }
