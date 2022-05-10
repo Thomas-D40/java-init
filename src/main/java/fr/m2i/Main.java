@@ -13,7 +13,7 @@ public class Main {
 
         while (true) {
             try {
-                System.out.print("Ecrivez un premier nombre entier");
+                System.out.print("Ecrivez un premier nombre entier : ");
                 firstNumber = scanner.nextInt();
                 break;
             } catch (InputMismatchException e) {
@@ -24,7 +24,7 @@ public class Main {
 
         while (true) {
             try {
-                System.out.print("Ecrivez un second nombre entier");
+                System.out.print("Ecrivez un second nombre entier : ");
                 secondNumber = scanner.nextInt();
                 break;
             } catch (InputMismatchException e) {
@@ -33,7 +33,7 @@ public class Main {
             }
         }
 
-        System.out.println("La somme de vos deux nombres est :" + (firstNumber * secondNumber));
+        System.out.println("Le résultat de " + firstNumber + " * " + secondNumber + " = "   + (firstNumber * secondNumber));
 
 
     }
