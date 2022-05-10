@@ -33,7 +33,7 @@ public class Main {
             }
         }
 
-        System.out.println("Le résultat de " + firstNumber + " * " + secondNumber + " = "   + (firstNumber * secondNumber));
+        System.out.println("Résultat : " + firstNumber + " * " + secondNumber + " = "   + (firstNumber * secondNumber));
 
 
     }
