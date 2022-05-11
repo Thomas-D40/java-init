@@ -32,8 +32,13 @@ public class Main {
                 scanner.nextLine();
             }
         }
+        scanner.close();
 
-        System.out.println("Résultat : " + firstNumber + " * " + secondNumber + " = "   + (firstNumber * secondNumber));
+        System.out.println("Résultat : " + firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
+
+        String finalSentence = String.format("Résultat : %d * %d = %d", firstNumber, secondNumber, firstNumber*secondNumber);
+
+        System.out.println(finalSentence);
 
 
     }
