@@ -8,13 +8,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int firstNumber;
+        Integer firstNumber = null;
 
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Integer> resTab = new ArrayList<>();
 
-        while (true) {
+
+        while (firstNumber == null) {
             try {
                 System.out.print("Ecrivez un premier nombre entier : ");
                 firstNumber = scanner.nextInt();
@@ -31,9 +32,12 @@ public class Main {
         String phrase = "%d X %d = %d";
         for (int i = 1; i <= 10; i++) {
             System.out.println(String.format(phrase, firstNumber, i, firstNumber*i));
+
             resTab.add(firstNumber*i);
+
         }
         System.out.println(resTab);
+
 
 
     }
