@@ -24,6 +24,9 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println("Essayez à nouveau");
                 scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Mince une erreur s'est produite :(");
+                return;
             }
 
         }
