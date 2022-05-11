@@ -18,15 +18,6 @@ public class Main {
             try {
                 System.out.print("Ecrivez un premier nombre entier : ");
                 firstNumber = scanner.nextInt();
-
-
-                String phrase = "%d X %d = %d";
-
-                for (int i = 1; i <= 10; i++) {
-                    System.out.println(String.format(phrase, firstNumber, i, firstNumber*i));
-                    resTab.add(firstNumber*i);
-                }
-
                 break;
 
             } catch (InputMismatchException e) {
@@ -34,6 +25,13 @@ public class Main {
                 scanner.nextLine();
             }
 
+        }
+        scanner.close();
+
+        String phrase = "%d X %d = %d";
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(String.format(phrase, firstNumber, i, firstNumber*i));
+            resTab.add(firstNumber*i);
         }
         System.out.println(resTab);
 
