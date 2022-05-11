@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         int firstNumber;
-        int secondNumber;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -22,47 +21,15 @@ public class Main {
                 scanner.nextLine();
             }
         }
-
-        while (true) {
-            try {
-                System.out.print("Ecrivez un second nombre entier : ");
-                secondNumber = scanner.nextInt();
-                break;
-            } catch (Exception e) {
-                System.out.println("Essayez à nouveau");
-                scanner.nextLine();
-            }
-        }
         scanner.close();
 
-        try {
-            division(10, 0);
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
+        String phrase = "%d X %d = %d";
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(String.format(phrase, firstNumber, i, firstNumber*i));
         }
 
 
-
-
-        String finalSentence = String.format("Résultat : %d * %d = %d", firstNumber, secondNumber, firstNumber*secondNumber);
-        String finalSentenceV2 = String.format("Résultat : %d * %d = %d", firstNumber, secondNumber, Math.multiplyExact(firstNumber,secondNumber));
-
-        System.out.println("Résultat : " + firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
-
-        System.out.println(finalSentence);
-        System.out.println(finalSentenceV2);
-
-
-
-
-    }
-
-    public static int division(int a, int b) throws ArithmeticException {
-        if (b == 0) {
-            throw new ArithmeticException("Tu ne peux pas diviser par zéro");
-        }
-        int result = a / b;
-        return result;
     }
 
 
