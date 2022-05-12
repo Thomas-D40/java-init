@@ -19,20 +19,21 @@ public class Calculator {
         Integer firstNumber = null;
         Integer secondNumber = null;
         Integer continuer = null;
-        Float result = retrieveRequestedOperation();
+        Double result = retrieveRequestedOperation();
 
 
 
         if (result == null) {
-            throw new Exception ("Une erreur est survenue !");
+            System.out.println("Une erreur est survenue ou vous avez essayé de diviser par zéro !");;
+        } else {
+            System.out.println((String.format("Résultat : %f", result)));
         }
-        System.out.println((String.format("Résultat %f: ", result)));
 
 
         scan.close();
     }
 
-    public Float retrieveRequestedOperation() {
+    public Double retrieveRequestedOperation() {
 
 
         Scanner scan = new Scanner(System.in);
@@ -87,29 +88,34 @@ public class Calculator {
                     System.out.println("Une erreur est survenue !");
                 }
             }
-        return calculation(firstNumber, secondNumber, choice);
+        try {
+            return calculation(firstNumber, secondNumber, choice);
+        } catch (ArithmeticException e) {
+            System.out.println("Division par zéro impossible");
+            return null;
+        }
 
 
     }
 
 
 
-    public Float calculation(int x, int y, String z) throws ArithmeticException
+    public Double calculation(int x, int y, String z) throws ArithmeticException
     {
         switch (z) {
             case "+" :
-                return (float) x + y;
+                return (double) x + y;
 
             case "-" :
-                return (float) x - y;
+                return (double) x - y;
 
             case "*" :
-                return (float) x * y;
+                return (double) x * y;
             case "/" :
                 if (y == 0) {
                     throw new ArithmeticException("Division par zéro impossible");
                 } else {
-                    return (float) x / y;
+                    return (double) x / y;
                 }
             default: return null;
         }
