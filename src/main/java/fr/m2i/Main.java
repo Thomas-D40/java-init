@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        Integer choice = null;
+        String choice = null;
         Integer continuer = null;
         Integer firstNumber = null;
         Integer secondNumber = null;
@@ -17,11 +17,17 @@ public class Main {
         while (continuer == null || continuer == 1) {
             while (choice == null) {
                 try {
-                    System.out.println("Quelle opération voulez-vous faire?" + System.lineSeparator() + "1 - addition" +
-                            System.lineSeparator() + "2 - soustraction" + System.lineSeparator() + "3 - multiplication"
-                            + System.lineSeparator() + "4 - division");
+                    System.out.println("Quelle opération voulez-vous faire?" + System.lineSeparator() + "+ : addition" +
+                            System.lineSeparator() + "- : soustraction" + System.lineSeparator() + "* : multiplication"
+                            + System.lineSeparator() + "/ : division");
 
-                    choice = scan.nextInt();
+                    choice = scan.next();
+                    if (choice.equals("+") || choice.equals("-") || choice.equals("*") || choice.equals("/")) {
+                        continue;
+                    } else {
+                        choice = null;
+                        System.out.println("Vous n'avez pas sélection via les options proposées");
+                    }
                 } catch (InputMismatchException e) {
                     System.out.println("Vous n'avez pas sélection via les options proposées");
                     scan.nextLine();
@@ -48,26 +54,10 @@ public class Main {
                 }
             }
 
-            switch (choice) {
-                case 1:
-                    System.out.println("Le résultat est de :" + Calculator.addition(firstNumber, secondNumber));
-                    break;
-                case 2:
-                    System.out.println("Le résultat est de :" + Calculator.soustraction(firstNumber, secondNumber));
-                    break;
-                case 3:
-                    System.out.println("Le résultat est de :" + Calculator.multiplication(firstNumber, secondNumber));
-                    break;
-                case 4:
-                    if (secondNumber == 0) {
-                       System.out.println("Impossible de diviser par zéro");
-                       break;
-                       }
-                    System.out.println("Le résultat est de :" + Calculator.division(firstNumber, secondNumber));
-                    break;
-                default:
-                    System.out.println("Ce n'est pas un choix disponible");
-            }
+            Calculator calcul = new Calculator(firstNumber, secondNumber, choice);
+
+            System.out.println(Calculator.Calculation(firstNumber, secondNumber, choice));
+
 
             System.out.println("Voulez-vous continuer?" + System.lineSeparator() + "1 - Oui" + System.lineSeparator() +
             "2 - Non");

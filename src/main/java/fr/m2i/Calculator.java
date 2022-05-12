@@ -1,32 +1,39 @@
 package fr.m2i;
 
-public class Calculator{
+public class Calculator {
+
+    private int x;
+    private int y;
+    String z;
+
+    public Calculator(int a, int b, String c) {
+        this.x = a;
+        this.y = b;
+        this.z = c;
+    }
 
 
-    public static int addition(int a, int b) {
-        return a + b;
+    public static float Calculation(int x, int y, String z)
+    {
+        switch (z) {
+            case "+" :
+                return x + y;
+
+            case "-" :
+                return x - y;
+
+            case "*" :
+                return x * y;
+            case "/" :
+                return (float) x / y;
+            default: return 0;
+        }
     }
-    public static float addition(float a, float b) {
-        return a + b;
-    }
-    public static int soustraction(int a, int b){
-        return a - b;
-    }
-    public static float soustraction(float a, float b){
-        return a - b;
-    }
-    public static int multiplication(int a, int b){
-        return a * b;
-    }
-    public static float multiplication(float a, float b){
-        return a * b;
-    }
-    public static float division(int a, int b){
-        return (float) a / b;
-    }
-    public static float division(float a, float b){
-        return a / b;
-    }
+
+    
+
+
+
 }
 
 
