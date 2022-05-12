@@ -8,45 +8,78 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        Scanner scan = new Scanner(System.in);
+        Integer choice = null;
+        Integer continuer = null;
         Integer firstNumber = null;
+        Integer secondNumber = null;
 
-        Scanner scanner = new Scanner(System.in);
+        while (continuer == null || continuer == 1) {
+            while (choice == null) {
+                try {
+                    System.out.println("Quelle opération voulez-vous faire?" + System.lineSeparator() + "1 - addition" +
+                            System.lineSeparator() + "2 - soustraction" + System.lineSeparator() + "3 - multiplication"
+                            + System.lineSeparator() + "4 - division");
 
-        ArrayList<Integer> resTab = new ArrayList<>();
-
-
-        while (firstNumber == null) {
-            try {
-                System.out.print("Ecrivez un premier nombre entier : ");
-                firstNumber = scanner.nextInt();
-                break;
-
-            } catch (InputMismatchException e) {
-                System.out.println("Essayez à nouveau");
-                scanner.nextLine();
-            } catch (Exception e) {
-                System.out.println("Mince une erreur s'est produite :(");
-                return;
-            } finally {
-                System.out.println("Ca boucle");
+                    choice = scan.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Vous n'avez pas sélection via les options proposées");
+                    scan.nextLine();
+                }
             }
+
+            while (firstNumber == null) {
+                try {
+                    System.out.println("Quel est le premier  entier?");
+                    firstNumber = scan.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Vous n'avez pas sélection via les options proposées");
+                    scan.nextLine();
+                }
+            }
+
+            while (secondNumber == null) {
+                try {
+                    System.out.println("Quel est le second?");
+                    secondNumber = scan.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Vous n'avez pas sélection via les options proposées");
+                    scan.nextLine();
+                }
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Le résultat est de :" + Calculator.addition(firstNumber, secondNumber));
+                    break;
+                case 2:
+                    System.out.println("Le résultat est de :" + Calculator.soustraction(firstNumber, secondNumber));
+                    break;
+                case 3:
+                    System.out.println("Le résultat est de :" + Calculator.multiplication(firstNumber, secondNumber));
+                    break;
+                case 4:
+                    if (secondNumber == 0) {
+                       System.out.println("Impossible de diviser par zéro");
+                       break;
+                       }
+                    System.out.println("Le résultat est de :" + Calculator.division(firstNumber, secondNumber));
+                    break;
+                default:
+                    System.out.println("Ce n'est pas un choix disponible");
+            }
+
+            System.out.println("Voulez-vous continuer?" + System.lineSeparator() + "1 - Oui" + System.lineSeparator() +
+            "2 - Non");
+            continuer = scan.nextInt();
+            choice = null;
+            firstNumber = null;
+            secondNumber = null;
         }
-        scanner.close();
-
-        String phrase = "%d X %d = %d";
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(String.format(phrase, firstNumber, i, firstNumber*i));
-
-            resTab.add(firstNumber*i);
-
-        }
-        System.out.println(resTab);
-
+        scan.close();
 
 
     }
-
-
 }
 
 
