@@ -54,9 +54,9 @@ public class Main {
                 }
             }
 
-            Calculator calcul = new Calculator(firstNumber, secondNumber, choice);
+            Calculator calcul = new Calculator();
 
-            System.out.println(Calculator.Calculation(firstNumber, secondNumber, choice));
+            System.out.println(calcul.Calculation(firstNumber, secondNumber, choice));
 
 
             System.out.println("Voulez-vous continuer?" + System.lineSeparator() + "1 - Oui" + System.lineSeparator() +
