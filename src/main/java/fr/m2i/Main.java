@@ -9,80 +9,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        String choice = null;
-        Integer continuer = null;
-        Integer firstNumber = null;
-        Integer secondNumber = null;
-        List<String> handledOperators = new ArrayList<String>() {{
-            add("+");
-            add("-");
-            add("*");
-            add("/");
-        }};
 
+        Calculator calcul = new Calculator();
 
-
-        while (continuer == null || continuer == 1) {
-            while (choice == null) {
-                try {
-                    System.out.println("Quelle opération voulez-vous faire?" + System.lineSeparator() + "+ : addition" +
-                            System.lineSeparator() + "- : soustraction" + System.lineSeparator() + "* : multiplication"
-                            + System.lineSeparator() + "/ : division");
-
-                    choice = scan.next();
-                    if (handledOperators.contains(choice)) {
-                        continue;
-                    } else {
-                        choice = null;
-                        System.out.println("Vous n'avez pas sélection via les options proposées");
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Vous n'avez pas sélection via les options proposées");
-                    scan.nextLine();
-                }
-            }
-
-            while (firstNumber == null) {
-                try {
-                    System.out.println("Quel est le premier  entier?");
-                    firstNumber = scan.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Vous n'avez pas sélection via les options proposées");
-                    scan.nextLine();
-                }
-            }
-
-            while (secondNumber == null) {
-                try {
-                    System.out.println("Quel est le second?");
-                    secondNumber = scan.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Vous n'avez pas sélection via les options proposées");
-                    scan.nextLine();
-                }
-            }
-
-
-            Calculator calcul = new Calculator();
-
-            try {
-                System.out.println("Le résultat de votre opération est : " + calcul.Calculation(firstNumber, secondNumber, choice));
-            } catch (ArithmeticException e) {
-                System.out.println("Arithmetic pb");
-            } catch (Exception e) {
-                System.out.println("Quelque chose ne s'est pas bien passé");
-            }
-
-
-            System.out.println("Voulez-vous continuer?" + System.lineSeparator() + "1 - Oui" + System.lineSeparator() +
-            "2 - Non");
-            continuer = scan.nextInt();
-            choice = null;
-            firstNumber = null;
-            secondNumber = null;
+        try {
+            calcul.start();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        scan.close();
 
 
     }
