@@ -2,7 +2,7 @@ package fr.m2i;
 
 public class Calculator {
 
-    public float Calculation(int x, int y, String z)
+    public float Calculation(int x, int y, String z) throws ArithmeticException
     {
         switch (z) {
             case "+" :
@@ -14,7 +14,11 @@ public class Calculator {
             case "*" :
                 return x * y;
             case "/" :
-                return (float) x / y;
+                if (y == 0) {
+                    throw new ArithmeticException("Division par zéro impossible");
+                } else {
+                    return (float) x / y;
+                }
             default: return 0;
         }
     }

@@ -3,6 +3,7 @@ package fr.m2i;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +14,14 @@ public class Main {
         Integer continuer = null;
         Integer firstNumber = null;
         Integer secondNumber = null;
+        List<String> handledOperators = new ArrayList<String>() {{
+            add("+");
+            add("-");
+            add("*");
+            add("/");
+        }};
+
+
 
         while (continuer == null || continuer == 1) {
             while (choice == null) {
@@ -22,7 +31,7 @@ public class Main {
                             + System.lineSeparator() + "/ : division");
 
                     choice = scan.next();
-                    if (choice.equals("+") || choice.equals("-") || choice.equals("*") || choice.equals("/")) {
+                    if (handledOperators.contains(choice)) {
                         continue;
                     } else {
                         choice = null;
@@ -54,9 +63,16 @@ public class Main {
                 }
             }
 
+
             Calculator calcul = new Calculator();
 
-            System.out.println(calcul.Calculation(firstNumber, secondNumber, choice));
+            try {
+                System.out.println("Le résultat de votre opération est : " + calcul.Calculation(firstNumber, secondNumber, choice));
+            } catch (ArithmeticException e) {
+                System.out.println("Arithmetic pb");
+            } catch (Exception e) {
+                System.out.println("Quelque chose ne s'est pas bien passé");
+            }
 
 
             System.out.println("Voulez-vous continuer?" + System.lineSeparator() + "1 - Oui" + System.lineSeparator() +
