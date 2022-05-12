@@ -27,8 +27,9 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Mince une erreur s'est produite :(");
                 return;
+            } finally {
+                System.out.println("Ca boucle");
             }
-
         }
         scanner.close();
 
