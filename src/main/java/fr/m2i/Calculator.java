@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Calculator {
-    public final List<String> handledOperators = new ArrayList<String>() {{
+    private final List<String> handledOperators = new ArrayList<String>() {{
         add("+");
         add("-");
         add("*");
@@ -33,7 +33,7 @@ public class Calculator {
         scan.close();
     }
 
-    public Double retrieveRequestedOperation() {
+    private Double retrieveRequestedOperation() {
 
 
         Scanner scan = new Scanner(System.in);
@@ -100,7 +100,7 @@ public class Calculator {
 
 
 
-    public Double calculation(int x, int y, String z) throws ArithmeticException
+    private Double calculation(int x, int y, String z) throws ArithmeticException
     {
         switch (z) {
             case "+" :
