@@ -81,13 +81,13 @@ public abstract class Vehicle {
 
 
             float conso = (gasConsumption * speed) / 100;
-            if (currentGas - conso >= 0) {
-                accelerate();
-                currentGas -= conso;
-                System.out.println("Le véhicule a consommé : " + conso);
-            } else {
+            if (currentGas - conso < 0) {
                 throw new Exception("Tu vas devoir pousser mon gars :( ");
+
             }
+        accelerate();
+        currentGas -= conso;
+        System.out.println("Le véhicule a consommé : " + conso);
 
     }
 
