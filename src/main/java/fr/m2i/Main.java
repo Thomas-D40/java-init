@@ -1,10 +1,14 @@
 package fr.m2i;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Car car = new Car();
+        ElectricCar electricCar = new ElectricCar();
+
+        car.accelerate();
+        electricCar.accelerate();
+        electricCar.rechargeBattery();
 
 
     }

@@ -7,7 +7,7 @@ public abstract class Vehicle {
     protected float gasCapacity;
     protected float gasConsumption;
     protected int speed;
-    protected int  passengerCapacity;
+    protected int passengerCapacity;
 
     // Getters
 
@@ -61,7 +61,9 @@ public abstract class Vehicle {
 
     // Methods:
     public abstract void accelerate();
+
     public abstract void brake();
+
     public void refuel(int refuelQuantity) {
 
         if (currentGas < gasCapacity) {
@@ -80,11 +82,11 @@ public abstract class Vehicle {
     public void drive() throws Exception {
 
 
-            float conso = (gasConsumption * speed) / 100;
-            if (currentGas - conso < 0) {
-                throw new Exception("Tu vas devoir pousser mon gars :( ");
+        float conso = (gasConsumption * speed) / 100;
 
-            }
+        if (currentGas - conso < 0) {
+            throw new Exception("Tu vas devoir pousser mon gars :( ");
+        }
         accelerate();
         currentGas -= conso;
         System.out.println("Le véhicule a consommé : " + conso);
