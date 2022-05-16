@@ -2,13 +2,13 @@ package org.example;
 
 public abstract class AbstractBrawlerChar {
 
-    private String name;
-    private int HealthPoint;
-    private int moveSpeed;
+    protected String name;
+    protected int healthPoint;
+    protected int moveSpeed;
 
     public AbstractBrawlerChar(String name, int healthPoint, int moveSpeed) {
         this.name = name;
-        HealthPoint = healthPoint;
+        this.healthPoint = healthPoint;
         this.moveSpeed = moveSpeed;
     }
 
@@ -21,7 +21,7 @@ public abstract class AbstractBrawlerChar {
     }
 
     public int getHealthPoint() {
-        return HealthPoint;
+        return healthPoint;
     }
 
     public String getName() {
@@ -29,7 +29,7 @@ public abstract class AbstractBrawlerChar {
     }
 
     public void setHealthPoint(int healthPoint) {
-        HealthPoint = healthPoint;
+        this.healthPoint = healthPoint;
     }
 
     public abstract void attack(AbstractBrawlerChar charac);

@@ -10,7 +10,16 @@ public class Soldier extends AbstractBrawlerChar {
     }
 
     @Override
-    public void attack(AbstractBrawlerChar charac) {
-        System.out.println("Your warrior deal " + attackDamage + "damages to the enemy.");
+    public void attack(AbstractBrawlerChar enemy) {
+        if (enemy == null || enemy.getHealthPoint() <= 0) {
+            System.out.println("On ne frappe pas un ennemi à terre!");
+            return;
+        }
+
+        int enemyHpAfterAtk = enemy.getHealthPoint() - attackDamage;
+
+        enemy.setHealthPoint(enemyHpAfterAtk);
+        System.out.println(String.format("%s attaque %s infligeant %d points de dégats, il lui reste %d pv.", name, enemy.getName(), attackDamage, enemyHpAfterAtk));
+
     }
 }
