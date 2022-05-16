@@ -6,9 +6,10 @@ public class Main {
         Car car = new Car();
         ElectricCar electricCar = new ElectricCar();
 
+
         car.accelerate();
         electricCar.accelerate();
-        electricCar.rechargeBattery();
+        electricCar.rechargeBattery(50);
 
 
     }

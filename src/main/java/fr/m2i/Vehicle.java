@@ -1,6 +1,13 @@
 package fr.m2i;
 
 public abstract class Vehicle {
+    public Vehicle(float currentGas, float gasCapacity, float gasConsumption, int speed, int passengerCapacity) {
+        this.currentGas = currentGas;
+        this.gasCapacity = gasCapacity;
+        this.gasConsumption = gasConsumption;
+        this.speed = speed;
+        this.passengerCapacity = passengerCapacity;
+    }
 
     // Attributs
     protected float currentGas;
