@@ -32,6 +32,6 @@ public abstract class AbstractBrawlerChar {
         this.healthPoint = healthPoint;
     }
 
-    public abstract void attack(AbstractBrawlerChar charac);
+    public abstract void attack(AbstractBrawlerChar enemy);
 }
 

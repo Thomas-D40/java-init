@@ -19,7 +19,12 @@ public class Soldier extends AbstractBrawlerChar {
         int enemyHpAfterAtk = enemy.getHealthPoint() - attackDamage;
 
         enemy.setHealthPoint(enemyHpAfterAtk);
-        System.out.println(String.format("%s attaque %s infligeant %d points de dégats, il lui reste %d pv.", name, enemy.getName(), attackDamage, enemyHpAfterAtk));
+        if (enemyHpAfterAtk > 0) {
+
+            System.out.println(String.format("%s attaque %s infligeant %d points de dégats, il lui reste %d pv.", name, enemy.getName(), attackDamage, enemyHpAfterAtk));
+        } else {
+            System.out.println(String.format("%s a tué %s", name, enemy.getName()));
+        }
 
     }
 }
